@@ -1,6 +1,8 @@
 <!-- Copyright (c) Microsoft Corporation and Contributors. -->
 <!-- Licensed under the MIT License. -->
 
+
+
 <Window
     x:Class="App1.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -8,10 +10,16 @@
     xmlns:local="using:App1"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"  >
+
+    <Border>
+        <Border.Background>
+            <ImageBrush ImageSource="C:\\Users\\andriy\\Desktop\\fibra-nos-ponte-de-lima.jpg"></ImageBrush>
+        </Border.Background>
+
     <!--Tabela principal-->
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="500"
-          VerticalAlignment="Center" HorizontalAlignment="Center">
+    <Grid Width="500"
+          VerticalAlignment="Top" HorizontalAlignment="Left">
         <!--Definir estrutura da tabela-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -23,9 +31,20 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
-            <!--<RowDefinition />-->
-            <!--<RowDefinition />-->
-        </Grid.RowDefinitions>
+            </Grid.RowDefinitions>
+
+        <Grid.Resources>
+            <ResourceDictionary>
+                <ResourceDictionary.ThemeDictionaries>
+                    <ResourceDictionary x:Key="Light">
+                        <SolidColorBrush x:Key="ButtonBackground" Color="Transparent"/>
+                        <SolidColorBrush x:Key="ButtonForeground" Color="MediumSlateBlue"/>
+                        <SolidColorBrush x:Key="ButtonBorderBrush" Color="MediumSlateBlue"/>
+                    </ResourceDictionary>
+                </ResourceDictionary.ThemeDictionaries>
+            </ResourceDictionary>
+        </Grid.Resources>
+
         <!--Titulo-->
         <!--<TextBlock Grid.ColumnSpan="2" Grid.Row="0">Title</TextBlock>-->
         <!--Botão e campo de input para adicionar itens-->
@@ -33,8 +52,16 @@
         <Button Grid.Row="0" Grid.Column="1" Click="AddData">Add</Button>
         <Button Grid.Row="0" Grid.Column="2" Click="AbrirJanelaFicheiro" HorizontalAlignment="Right">Load data from file</Button>
         <!--Lista de itens-->
-        <ListView Grid.Row="1"  Grid.ColumnSpan="3" x:Name="Output">
-            <ListView.ItemTemplate>
+            <ListView Grid.Row="1" Grid.ColumnSpan="3" x:Name="Output" >
+
+            <!--<ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Height" Value="30" />
+                </Style>
+            </ListView.ItemContainerStyle>-->
+
+
+                <ListView.ItemTemplate >
                 <DataTemplate>
                     <TextBlock Text="{Binding}"/>
                 </DataTemplate>
@@ -46,4 +73,9 @@
         <!--<Button Grid.Row="4" Grid.ColumnSpan="2" x:Name="myButton" Click="myButton_Click">Click me</Button>-->
         <!--<TextBlock Grid.ColumnSpan="2" Grid.Row="6" x:Name="OutputTextBlock" Text="{Binding}"></TextBlock>-->
     </Grid>
+
+
+
+    </Border>
+
 </Window>

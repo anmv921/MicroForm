@@ -1,6 +1,7 @@
 // Copyright (c) Microsoft Corporation and Contributors.
 // Licensed under the MIT License.
 
+using Microsoft.UI;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -17,6 +18,8 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.Storage.Pickers;
+using Microsoft.UI.Windowing;
+using Microsoft.UI.Xaml.Media.Imaging;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -31,10 +34,21 @@ namespace App1
         public MainWindow()
         {
             this.InitializeComponent();
-
             Output.ItemsSource = DataAccess.GetData();
-
             //OutputTextBlock.Text = "teste";
+
+            IntPtr hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this); // m_window in App.cs
+            WindowId windowId = Win32Interop.GetWindowIdFromWindow(hWnd);
+            AppWindow appWindow = AppWindow.GetFromWindowId(windowId);
+
+            //var size = new Windows.Graphics.SizeInt32();
+            //size.Width = 800;
+            //size.Height = 500;
+            //appWindow.Resize(size);
+
+            //ImageBrush myBrush = new ImageBrush();
+            //myBrush.ImageSource = new BitmapImage(new Uri("C:\\Users\\andriy\\Desktop\\2a66feae-690b-4236-9edc-d38020364957_thumb.png", UriKind.Absolute));
+            //windowId.Background = myBrush;
         }
 
         //private async void myButton_Click(object sender, RoutedEventArgs e)
