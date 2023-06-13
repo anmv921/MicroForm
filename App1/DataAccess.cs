@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Data.Sqlite;
 using Windows.Storage;
+using Windows.System;
 
 namespace App1
 {
@@ -14,9 +16,11 @@ namespace App1
         // =============================================================================================================================
         public async static void InitializeDatabase()
         {
-            await ApplicationData.Current.LocalFolder
-                    .CreateFileAsync("sqliteSample.db", CreationCollisionOption.OpenIfExists);
-            string dbpath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "sqliteSample.db");
+            string path = "C:\\Users\\andriy\\Desktop\\microform-data\\";
+            StorageFolder folder = await StorageFolder.GetFolderFromPathAsync(path);
+            await folder.CreateFileAsync("sqliteSample.db", CreationCollisionOption.OpenIfExists);
+            //await ApplicationData.Current.LocalFolder.CreateFileAsync("sqliteSample.db", CreationCollisionOption.OpenIfExists);
+            string dbpath = Path.Combine(path, "sqliteSample.db");
             
             using (var db = new SqliteConnection($"Filename={dbpath}"))
             {
@@ -34,7 +38,10 @@ namespace App1
         // =============================================================================================================================
         public static void AddData(string inputText)
         {
-            string dbpath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "sqliteSample.db");
+            //string dbpath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "sqliteSample.db");
+            string path = "C:\\Users\\andriy\\Desktop\\microform-data\\";
+            string dbpath = Path.Combine(path, "sqliteSample.db");
+
             using (var db = new SqliteConnection($"Filename={dbpath}"))
             {
                 db.Open();
@@ -54,7 +61,9 @@ namespace App1
         public static List<string> GetData()
         {
             var entries = new List<string>();
-            string dbpath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "sqliteSample.db");
+            //string dbpath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "sqliteSample.db");
+            string path = "C:\\Users\\andriy\\Desktop\\microform-data\\";
+            string dbpath = Path.Combine(path, "sqliteSample.db");
             using (var db = new SqliteConnection($"Filename={dbpath}"))
             {
                 db.Open();
@@ -73,7 +82,9 @@ namespace App1
         // =============================================================================================================================
         public static void DeleteAllData()
         {
-            string dbpath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "sqliteSample.db");
+            //string dbpath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "sqliteSample.db");
+            string path = "C:\\Users\\andriy\\Desktop\\microform-data\\";
+            string dbpath = Path.Combine(path, "sqliteSample.db");
 
             using (var db = new SqliteConnection($"Filename={dbpath}"))
             {
@@ -85,6 +96,11 @@ namespace App1
                 deleteAllCommand.ExecuteReader();
             }
 
+        } // End delete all data
+        public static void ReadConfig()
+        {
+            string configPath = "Data\\conig.csv";
+            var lines = File.ReadLines(configPath);
         }
-    } // End DataAccess
+    } // End DataAccess Class
 } // End App1

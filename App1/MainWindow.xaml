@@ -14,7 +14,7 @@
 
     <Border>
         <Border.Background>
-            <ImageBrush ImageSource="C:\\Users\\andriy\\Desktop\\fibra-nos-ponte-de-lima.jpg"></ImageBrush>
+            <ImageBrush ImageSource="C:\\Users\\andriy\\Pictures\\ignatius-reilly.jpg"></ImageBrush>
         </Border.Background>
 
     <!--Tabela principal-->
@@ -53,17 +53,9 @@
         <Button Grid.Row="0" Grid.Column="2" Click="AbrirJanelaFicheiro" HorizontalAlignment="Right">Load data from file</Button>
         <!--Lista de itens-->
             <ListView Grid.Row="1" Grid.ColumnSpan="3" x:Name="Output" >
-
-            <!--<ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <Setter Property="Height" Value="30" />
-                </Style>
-            </ListView.ItemContainerStyle>-->
-
-
                 <ListView.ItemTemplate >
                 <DataTemplate>
-                    <TextBlock Text="{Binding}"/>
+                        <TextBlock Foreground="MediumSlateBlue" Text="{Binding}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
