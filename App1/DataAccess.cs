@@ -97,10 +97,17 @@ namespace App1
             }
 
         } // End delete all data
-        public static void ReadConfig()
+        public static Dictionary<string, string> ReadConfig()
         {
             string configPath = "Data\\conig.csv";
             var lines = File.ReadLines(configPath);
+            Dictionary<string, string> out_config = new Dictionary<string, string>();
+            foreach (string line in lines)
+            {
+                string[] kv = line.Split(",");
+                out_config.Add(kv[0].Trim(), kv[1].Trim());
+            }
+            return out_config;
         }
     } // End DataAccess Class
 } // End App1
