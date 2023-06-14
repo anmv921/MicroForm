@@ -34,7 +34,7 @@
             </Grid.RowDefinitions>
 
         <Grid.Resources>
-            <ResourceDictionary>
+            <!--<ResourceDictionary>
                 <ResourceDictionary.ThemeDictionaries>
                     <ResourceDictionary x:Key="Light">
                         <SolidColorBrush x:Key="ButtonBackground" Color="Transparent"/>
@@ -42,8 +42,22 @@
                         <SolidColorBrush x:Key="ButtonBorderBrush" Color="MediumSlateBlue"/>
                     </ResourceDictionary>
                 </ResourceDictionary.ThemeDictionaries>
-            </ResourceDictionary>
-        </Grid.Resources>
+            </ResourceDictionary>-->
+                <Style TargetType="Button">
+                    <Setter Property="BorderThickness" Value="5" />
+                    <Setter Property="Foreground" Value="Black" />
+                    <Setter Property="BorderBrush" >
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Color="Yellow" Offset="0.0" />
+                                <GradientStop Color="Red" Offset="0.25" />
+                                <GradientStop Color="Blue" Offset="0.75" />
+                                <GradientStop Color="LimeGreen" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Grid.Resources>
 
         <!--Titulo-->
         <!--<TextBlock Grid.ColumnSpan="2" Grid.Row="0">Title</TextBlock>-->
@@ -55,8 +69,10 @@
             <ListView Grid.Row="1" Grid.ColumnSpan="3" x:Name="Output" >
                 <ListView.ItemTemplate >
                 <DataTemplate>
-                        <TextBlock Foreground="MediumSlateBlue" Text="{Binding}"/>
-                </DataTemplate>
+                        <Border Background="LightGray" >
+                            <TextBlock Foreground="Black" Text="{Binding}"/>
+                        </Border>
+                    </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
         <!--Botão para eliminar tudo-->
