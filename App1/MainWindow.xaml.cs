@@ -41,10 +41,10 @@ namespace WinUI3FormApp
             WindowId windowId = Win32Interop.GetWindowIdFromWindow(hWnd);
             AppWindow appWindow = AppWindow.GetFromWindowId(windowId);
 
-            var size = new Windows.Graphics.SizeInt32();
-            size.Width = 1000;
-            size.Height = 700;
-            appWindow.Resize(size);
+            //var size = new Windows.Graphics.SizeInt32();
+            //size.Width = 1000;
+            //size.Height = 700;
+            //appWindow.Resize(size);
 
             //ImageBrush myBrush = new ImageBrush();
             //myBrush.ImageSource = new BitmapImage(new Uri("C:\\Users\\andriy\\Desktop\\2a66feae-690b-4236-9edc-d38020364957_thumb.png", UriKind.Absolute));
@@ -52,7 +52,7 @@ namespace WinUI3FormApp
 
 
             //ScrollViewerOutput.Height = 500;
-            ListViewOutput.Height = 800;
+            //ListViewOutput.Height = 800;
         }
 
         //private async void myButton_Click(object sender, RoutedEventArgs e)

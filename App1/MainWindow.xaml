@@ -12,13 +12,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"  >
 
-    <Border>
+    <Border  >
         <Border.Background>
             <ImageBrush ImageSource="C:\\Users\\andriy\\Pictures\\ignatius-reilly.jpg"></ImageBrush>
         </Border.Background>
 
     <!--Tabela principal-->
-    <Grid Width="500"
+        <Grid Width="500" 
           VerticalAlignment="Top" HorizontalAlignment="Left">
         <!--Definir estrutura da tabela-->
         <Grid.ColumnDefinitions>
@@ -31,8 +31,9 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
+                <RowDefinition />
             </Grid.RowDefinitions>
-
         <Grid.Resources>
             <!--<ResourceDictionary>
                 <ResourceDictionary.ThemeDictionaries>
@@ -62,16 +63,19 @@
             </Grid.Resources>
 
         <!--Titulo-->
-        <!--<TextBlock Grid.ColumnSpan="2" Grid.Row="0">Title</TextBlock>-->
-        <!--Botão e campo de input para adicionar itens-->
-        <TextBox Grid.Row="0" Grid.Column="0" x:Name="Input_Box"/>
-        <Button Grid.Row="0" Grid.Column="1" Click="AddData">Add</Button>
-        <Button Grid.Row="0" Grid.Column="2" Click="AbrirJanelaFicheiro" 
+        <TextBlock Grid.ColumnSpan="3" Grid.Row="0" TextAlignment="Center"
+                   Foreground="White">
+            Items
+        </TextBlock>
+           <!--Botão e campo de input para adicionar itens-->
+        <TextBox Grid.Row="1" Grid.Column="0" x:Name="Input_Box"/>
+        <Button Grid.Row="1" Grid.Column="1" Click="AddData">Add</Button>
+        <Button Grid.Row="1" Grid.Column="2" Click="AbrirJanelaFicheiro" 
                 HorizontalAlignment="Right">Load data from file</Button>
         <!-- Lista de itens -->
             <ScrollViewer HorizontalScrollBarVisibility="Auto" 
                       VerticalScrollBarVisibility="Auto"
-                          Grid.Row="1" Grid.ColumnSpan="3" 
+                          Grid.Row="2" Grid.ColumnSpan="3"  Grid.RowSpan="3"
                           x:Name="ScrollViewerOutput">
                 <!-- <ListView Grid.Row="1" Grid.ColumnSpan="3" x:Name="Output" > -->
                 <ListView x:Name="ListViewOutput" >
@@ -86,7 +90,7 @@
              </ListView>
             </ScrollViewer>
         <!--Botão para eliminar tudo-->
-        <Button Grid.Row="2" Grid.ColumnSpan="3"
+        <Button Grid.Row="5" Grid.ColumnSpan="3"
                 Click="DeleteAll"
                 HorizontalAlignment="Center">Delete Everything</Button>
         <!--Botão para mostrar um popup. Neste caso o popup mostra o caminho da base de dados-->
