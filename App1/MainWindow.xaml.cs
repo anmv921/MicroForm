@@ -24,7 +24,7 @@ using Microsoft.UI.Xaml.Media.Imaging;
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
-namespace App1
+namespace WinUI3FormApp
 {
     /// <summary>
     /// An empty window that can be used on its own or navigated to within a Frame.
@@ -34,21 +34,25 @@ namespace App1
         public MainWindow()
         {
             this.InitializeComponent();
-            Output.ItemsSource = DataAccess.GetData();
+            ListViewOutput.ItemsSource = DataAccess.GetData();
             //OutputTextBlock.Text = "teste";
 
             IntPtr hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this); // m_window in App.cs
             WindowId windowId = Win32Interop.GetWindowIdFromWindow(hWnd);
             AppWindow appWindow = AppWindow.GetFromWindowId(windowId);
 
-            //var size = new Windows.Graphics.SizeInt32();
-            //size.Width = 800;
-            //size.Height = 500;
-            //appWindow.Resize(size);
+            var size = new Windows.Graphics.SizeInt32();
+            size.Width = 1000;
+            size.Height = 700;
+            appWindow.Resize(size);
 
             //ImageBrush myBrush = new ImageBrush();
             //myBrush.ImageSource = new BitmapImage(new Uri("C:\\Users\\andriy\\Desktop\\2a66feae-690b-4236-9edc-d38020364957_thumb.png", UriKind.Absolute));
             //windowId.Background = myBrush;
+
+
+            //ScrollViewerOutput.Height = 500;
+            ListViewOutput.Height = 800;
         }
 
         //private async void myButton_Click(object sender, RoutedEventArgs e)
@@ -67,13 +71,13 @@ namespace App1
         {
             DataAccess.AddData(Input_Box.Text);
 
-            Output.ItemsSource = DataAccess.GetData();
+            ListViewOutput.ItemsSource = DataAccess.GetData();
         }
 
         private void DeleteAll(object sender, RoutedEventArgs e)
         {
             DataAccess.DeleteAllData();
-            Output.ItemsSource = DataAccess.GetData();
+            ListViewOutput.ItemsSource = DataAccess.GetData();
         }
         
         private async void AbrirJanelaFicheiro(object sender, RoutedEventArgs e)
@@ -99,7 +103,7 @@ namespace App1
                     //OutputTextBlock.Text += " " + line;
                     DataAccess.AddData(line);
                 }
-                Output.ItemsSource = DataAccess.GetData();
+                ListViewOutput.ItemsSource = DataAccess.GetData();
             }
             else
             {

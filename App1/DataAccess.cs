@@ -9,7 +9,7 @@ using Microsoft.Data.Sqlite;
 using Windows.Storage;
 using Windows.System;
 
-namespace App1
+namespace WinUI3FormApp
 {
     public static class DataAccess
     {
