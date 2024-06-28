@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "AppMicroform (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "AppMicroform (Unpackaged)": {
+      "commandName": "Project"
+    },
+    "WSL": {
+      "commandName": "WSL2",
+      "distributionName": ""
+    }
+  }
+}

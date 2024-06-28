@@ -1,41 +1,37 @@
-<!-- Copyright (c) Microsoft Corporation and Contributors. -->
-<!-- Licensed under the MIT License. -->
-
-
-
+<?xml version="1.0" encoding="utf-8"?>
 <Window
-    x:Class="WinUI3FormApp.MainWindow"
+    x:Class="AppMicroform.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:WinUI3FormApp"
+    xmlns:local="using:AppMicroform"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"  >
+    mc:Ignorable="d">
 
     <Border  >
         <Border.Background>
             <ImageBrush ImageSource="C:\\Users\\andriy\\Pictures\\ignatius-reilly.jpg"></ImageBrush>
         </Border.Background>
 
-    <!--Tabela principal-->
+        <!--Tabela principal-->
         <Grid Width="500" 
           VerticalAlignment="Top" HorizontalAlignment="Left">
-        <!--Definir estrutura da tabela-->
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
+            <!--Definir estrutura da tabela-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-        <Grid.Resources>
-            <!--<ResourceDictionary>
+            <Grid.Resources>
+                <!--<ResourceDictionary>
                 <ResourceDictionary.ThemeDictionaries>
                     <ResourceDictionary x:Key="Light">
                         <SolidColorBrush x:Key="ButtonBackground" Color="Transparent"/>
@@ -44,7 +40,7 @@
                     </ResourceDictionary>
                 </ResourceDictionary.ThemeDictionaries>
             </ResourceDictionary>-->
-            
+
                 <Style TargetType="Button">
                     <Setter Property="BorderThickness" Value="5" />
                     <Setter Property="Foreground" Value="Black" />
@@ -59,47 +55,46 @@
                         </Setter.Value>
                     </Setter>
                 </Style>
-            
+
             </Grid.Resources>
 
-        <!--Titulo-->
-        <TextBlock Grid.ColumnSpan="3" Grid.Row="0" TextAlignment="Center"
+            <!--Titulo-->
+            <TextBlock Grid.ColumnSpan="3" Grid.Row="0" TextAlignment="Center"
                    Foreground="White">
             Items
-        </TextBlock>
-           <!--Botão e campo de input para adicionar itens-->
-        <TextBox Grid.Row="1" Grid.Column="0" x:Name="Input_Box"/>
-        <Button Grid.Row="1" Grid.Column="1" Click="AddData">Add</Button>
-        <Button Grid.Row="1" Grid.Column="2" Click="AbrirJanelaFicheiro" 
+            </TextBlock>
+            <!--BotÃ£o e campo de input para adicionar itens-->
+            <TextBox Grid.Row="1" Grid.Column="0" x:Name="Input_Box"/>
+            <Button Grid.Row="1" Grid.Column="1" Click="AddData">Add</Button>
+            <Button Grid.Row="1" Grid.Column="2" Click="AbrirJanelaFicheiro" 
                 HorizontalAlignment="Right">Load data from file</Button>
-        <!-- Lista de itens -->
+            <!-- Lista de itens -->
             <ScrollViewer HorizontalScrollBarVisibility="Auto" 
                       VerticalScrollBarVisibility="Auto"
                           Grid.Row="2" Grid.ColumnSpan="3"  Grid.RowSpan="3"
                           x:Name="ScrollViewerOutput">
                 <!-- <ListView Grid.Row="1" Grid.ColumnSpan="3" x:Name="Output" > -->
                 <ListView x:Name="ListViewOutput" >
-                <ListView.ItemTemplate >
-                <DataTemplate>
-                        <Border Background="LightGray">
-                            <TextBlock Foreground="Black" Text="{Binding}"/>
+                    <ListView.ItemTemplate >
+                        <DataTemplate>
+                            <Border Background="LightGray">
+                                <TextBlock Foreground="Black" Text="{Binding}"/>
 
-                        </Border>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-             </ListView>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </ScrollViewer>
-        <!--Botão para eliminar tudo-->
-        <Button Grid.Row="5" Grid.ColumnSpan="3"
+            <!--BotÃ£o para eliminar tudo-->
+            <Button Grid.Row="5" Grid.ColumnSpan="3"
                 Click="DeleteAll"
                 HorizontalAlignment="Center">Delete Everything</Button>
-        <!--Botão para mostrar um popup. Neste caso o popup mostra o caminho da base de dados-->
-        <!--<Button Grid.Row="4" Grid.ColumnSpan="2" x:Name="myButton" Click="myButton_Click">Click me</Button>-->
-        <!--<TextBlock Grid.ColumnSpan="2" Grid.Row="6" x:Name="OutputTextBlock" Text="{Binding}"></TextBlock>-->
-    </Grid>
+            <!--BotÃ£o para mostrar um popup. Neste caso o popup mostra o caminho da base de dados-->
+            <!--<Button Grid.Row="4" Grid.ColumnSpan="2" x:Name="myButton" Click="myButton_Click">Click me</Button>-->
+            <!--<TextBlock Grid.ColumnSpan="2" Grid.Row="6" x:Name="OutputTextBlock" Text="{Binding}"></TextBlock>-->
+        </Grid>
 
 
 
     </Border>
-
 </Window>

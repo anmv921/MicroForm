@@ -16,7 +16,7 @@ namespace WinUI3FormApp
         // =============================================================================================================================
         public async static void InitializeDatabase()
         {
-            string path = "C:\\Users\\andriy\\Desktop\\microform-data\\";
+            string path = "C:\\Users\\andri\\Desktop\\Code\\microform-new\\AppMicroform\\Data\\";
             StorageFolder folder = await StorageFolder.GetFolderFromPathAsync(path);
             await folder.CreateFileAsync("sqliteSample.db", CreationCollisionOption.OpenIfExists);
             //await ApplicationData.Current.LocalFolder.CreateFileAsync("sqliteSample.db", CreationCollisionOption.OpenIfExists);
@@ -39,7 +39,7 @@ namespace WinUI3FormApp
         public static void AddData(string inputText)
         {
             //string dbpath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "sqliteSample.db");
-            string path = "C:\\Users\\andriy\\Desktop\\microform-data\\";
+            string path = "C:\\Users\\andri\\Desktop\\Code\\microform-new\\AppMicroform\\Data\\";
             string dbpath = Path.Combine(path, "sqliteSample.db");
 
             using (var db = new SqliteConnection($"Filename={dbpath}"))
@@ -62,7 +62,7 @@ namespace WinUI3FormApp
         {
             var entries = new List<string>();
             //string dbpath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "sqliteSample.db");
-            string path = "C:\\Users\\andriy\\Desktop\\microform-data\\";
+            string path = "C:\\Users\\andri\\Desktop\\Code\\microform-new\\AppMicroform\\Data\\";
             string dbpath = Path.Combine(path, "sqliteSample.db");
             using (var db = new SqliteConnection($"Filename={dbpath}"))
             {
@@ -83,7 +83,7 @@ namespace WinUI3FormApp
         public static void DeleteAllData()
         {
             //string dbpath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "sqliteSample.db");
-            string path = "C:\\Users\\andriy\\Desktop\\microform-data\\";
+            string path = "C:\\Users\\andri\\Desktop\\Code\\microform-new\\AppMicroform\\Data\\";
             string dbpath = Path.Combine(path, "sqliteSample.db");
 
             using (var db = new SqliteConnection($"Filename={dbpath}"))
@@ -99,7 +99,7 @@ namespace WinUI3FormApp
         } // End delete all data
         public static Dictionary<string, string> ReadConfig()
         {
-            string configPath = "Data\\conig.csv";
+            string configPath = "Data\\config.csv";
             var lines = File.ReadLines(configPath);
             Dictionary<string, string> out_config = new Dictionary<string, string>();
             foreach (string line in lines)
