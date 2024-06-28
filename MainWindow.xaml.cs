@@ -30,37 +30,11 @@ namespace AppMicroform
         {
             this.InitializeComponent();
             ListViewOutput.ItemsSource = DataAccess.GetData();
-            //OutputTextBlock.Text = "teste";
 
             IntPtr hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this); // m_window in App.cs
             WindowId windowId = Win32Interop.GetWindowIdFromWindow(hWnd);
             AppWindow appWindow = AppWindow.GetFromWindowId(windowId);
-
-            //var size = new Windows.Graphics.SizeInt32();
-            //size.Width = 1000;
-            //size.Height = 700;
-            //appWindow.Resize(size);
-
-            //ImageBrush myBrush = new ImageBrush();
-            //myBrush.ImageSource = new BitmapImage(new Uri("C:\\Users\\andriy\\Desktop\\2a66feae-690b-4236-9edc-d38020364957_thumb.png", UriKind.Absolute));
-            //windowId.Background = myBrush;
-
-
-            //ScrollViewerOutput.Height = 500;
-            //ListViewOutput.Height = 800;
         }
-
-        //private async void myButton_Click(object sender, RoutedEventArgs e)
-        //{
-        //    var welcomeDialog = new ContentDialog()
-        //    {
-        //        Title = "Database path:",
-        //        Content = Path.Combine(ApplicationData.Current.LocalFolder.Path, "sqliteSample.db"),
-        //        CloseButtonText = "Ok",
-        //        XamlRoot = myButton.XamlRoot
-        //    };
-        //    await welcomeDialog.ShowAsync();
-        //}
 
         private void AddData(object sender, RoutedEventArgs e)
         {
@@ -90,19 +64,15 @@ namespace AppMicroform
             StorageFile file = await openPicker.PickSingleFileAsync();
             if (file != null)
             {
-                // Application now has read/write access to the picked file
-                // OutputTextBlock.Text = "Picked photo: " + file.Name;
                 var lines = await FileIO.ReadLinesAsync(file);
                 foreach (string line in lines)
                 {
-                    //OutputTextBlock.Text += " " + line;
                     DataAccess.AddData(line);
                 }
                 ListViewOutput.ItemsSource = DataAccess.GetData();
             }
             else
             {
-                //OutputTextBlock.Text = "Operation cancelled.";
             }
 
         }

@@ -7,12 +7,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
-    <Border  >
+    <Border >
         <Border.Background>
-            <ImageBrush ImageSource="C:\\Users\\andriy\\Pictures\\ignatius-reilly.jpg"></ImageBrush>
+            <ImageBrush 
+                Opacity="0.5"
+                ImageSource="C:\\Users\\andri\\Desktop\\Code\\microform\\MicroForm\\Data\\Untitled_(First_Abstract_Watercolor)_by_Wassily_Kandinsky.jpg">
+            </ImageBrush>
         </Border.Background>
-
         <!--Tabela principal-->
         <Grid Width="500" 
           VerticalAlignment="Top" HorizontalAlignment="Left">
@@ -31,16 +32,6 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Grid.Resources>
-                <!--<ResourceDictionary>
-                <ResourceDictionary.ThemeDictionaries>
-                    <ResourceDictionary x:Key="Light">
-                        <SolidColorBrush x:Key="ButtonBackground" Color="Transparent"/>
-                        <SolidColorBrush x:Key="ButtonForeground" Color="MediumSlateBlue"/>
-                        <SolidColorBrush x:Key="ButtonBorderBrush" Color="MediumSlateBlue"/>
-                    </ResourceDictionary>
-                </ResourceDictionary.ThemeDictionaries>
-            </ResourceDictionary>-->
-
                 <Style TargetType="Button">
                     <Setter Property="BorderThickness" Value="5" />
                     <Setter Property="Foreground" Value="Black" />
@@ -55,12 +46,10 @@
                         </Setter.Value>
                     </Setter>
                 </Style>
-
             </Grid.Resources>
-
             <!--Titulo-->
             <TextBlock Grid.ColumnSpan="3" Grid.Row="0" TextAlignment="Center"
-                   Foreground="White">
+                   Foreground="Black">
             Items
             </TextBlock>
             <!--Botão e campo de input para adicionar itens-->
@@ -79,7 +68,6 @@
                         <DataTemplate>
                             <Border Background="LightGray">
                                 <TextBlock Foreground="Black" Text="{Binding}"/>
-
                             </Border>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -89,12 +77,6 @@
             <Button Grid.Row="5" Grid.ColumnSpan="3"
                 Click="DeleteAll"
                 HorizontalAlignment="Center">Delete Everything</Button>
-            <!--Botão para mostrar um popup. Neste caso o popup mostra o caminho da base de dados-->
-            <!--<Button Grid.Row="4" Grid.ColumnSpan="2" x:Name="myButton" Click="myButton_Click">Click me</Button>-->
-            <!--<TextBlock Grid.ColumnSpan="2" Grid.Row="6" x:Name="OutputTextBlock" Text="{Binding}"></TextBlock>-->
         </Grid>
-
-
-
     </Border>
 </Window>

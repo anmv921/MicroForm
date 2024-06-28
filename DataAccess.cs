@@ -13,13 +13,12 @@ namespace WinUI3FormApp
 {
     public static class DataAccess
     {
-        // =============================================================================================================================
+        // =======================
         public async static void InitializeDatabase()
         {
             string path = "C:\\Users\\andri\\Desktop\\Code\\microform\\Microform\\Data\\";
             StorageFolder folder = await StorageFolder.GetFolderFromPathAsync(path);
             await folder.CreateFileAsync("sqliteSample.db", CreationCollisionOption.OpenIfExists);
-            //await ApplicationData.Current.LocalFolder.CreateFileAsync("sqliteSample.db", CreationCollisionOption.OpenIfExists);
             string dbpath = Path.Combine(path, "sqliteSample.db");
             
             using (var db = new SqliteConnection($"Filename={dbpath}"))
@@ -35,7 +34,7 @@ namespace WinUI3FormApp
                 createTable.ExecuteReader();
             }
         } // End InitializeDatabase
-        // =============================================================================================================================
+        // ========================
         public static void AddData(string inputText)
         {
             //string dbpath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "sqliteSample.db");
@@ -57,7 +56,7 @@ namespace WinUI3FormApp
             }
 
         } // End AddData
-        // =============================================================================================================================
+        // =============
         public static List<string> GetData()
         {
             var entries = new List<string>();
@@ -79,7 +78,7 @@ namespace WinUI3FormApp
             }
             return entries;
         } // End GetData
-        // =============================================================================================================================
+        // =============
         public static void DeleteAllData()
         {
             //string dbpath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "sqliteSample.db");
